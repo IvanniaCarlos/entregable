@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado del Test</title>
+    <link rel="icon" href="https://img.freepik.com/vector-gratis/tecnica-masaje-facial-dibujada-mano_23-2148867246.jpg?w=360">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fce4ec;
+            background-image: linear-gradient(to bottom, #fff0f5, #fce4ec);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 550px;
+            width: 100%;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        .btn-productos {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn-productos:hover {
+            background-color: #d81b60;
+            transform: scale(1.05);
+        }
+        #imagen-tipo-piel {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 5px solid #fce4ec;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="imagen-tipo-piel" src="" alt="Imagen de tu tipo de piel">
+        <h1 id="resultado-titulo"></h1>
+        <p id="resultado-texto"></p>
+        <a id="btn-ver-productos" class="btn-productos">Ver productos para mi piel</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tipoPiel = localStorage.getItem('tipoPiel');
+            const titulo = document.getElementById('resultado-titulo');
+            const texto = document.getElementById('resultado-texto');
+            const boton = document.getElementById('btn-ver-productos');
+            const imagen = document.getElementById('imagen-tipo-piel');
+
+            if (tipoPiel === 'seca') {
+                titulo.textContent = 'Tu Piel es Seca';
+                texto.textContent = 'La mejor forma de cuidarla es con hidratación y productos suaves.';
+                boton.href = 'pielseca.html';
+                imagen.src = 'https://img.freepik.com/vector-premium/tipo-piel-seca_461756-846.jpg';
+            } else if (tipoPiel === 'mixta') {
+                titulo.textContent = 'Tu Piel es Mixta';
+                texto.textContent = 'Necesitas balancear las zonas secas e hidratar la zona T.';
+                boton.href = 'pielmixta.html';
+                imagen.src = 'https://img.freepik.com/vector-premium/tipo-piel-mixta_461756-844.jpg'  ;
+            } else if (tipoPiel === 'grasa') {
+                titulo.textContent = 'Tu Piel es Grasa';
+                texto.textContent = 'Te recomendamos productos que controlen el brillo y reduzcan los poros.';
+                boton.href = 'pielgrasa.html';
+                imagen.src = 'https://img.freepik.com/vector-premium/tipo-piel-grasa_461756-845.jpg'  ;
+            } else {
+                titulo.textContent = 'No se pudo determinar';
+                texto.textContent = 'Por favor, intenta el cuestionario de nuevo.';
+                imagen.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

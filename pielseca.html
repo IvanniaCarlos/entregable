@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos para Piel Seca - Belleza Facial</title>
+    <link rel="icon" href="https://img.freepik.com/vector-gratis/tecnica-masaje-facial-dibujada-mano_23-2148867246.jpg?w=360">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fce4ec;
+            background-image: linear-gradient(to bottom, #fff0f5, #fce4ec);
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #e91e63;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+        .volver-btn {
+            background-color: #f48fb1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .volver-btn:hover {
+            background-color: #e91e63;
+        }
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .producto-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .producto-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .producto-info {
+            padding: 20px;
+        }
+        .producto-info h3 {
+            color: #e91e63;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        .producto-precio {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .botones-producto {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-comprar {
+            background-color: #f48fb1;
+            color: white;
+        }
+        .btn-comprar:hover {
+            background-color: #e91e63;
+        }
+        .btn-info {
+            background-color: #ccc;
+            color: #555;
+        }
+        .btn-info:hover {
+            background-color: #999;
+            color: white;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal h2 {
+            color: #e91e63;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        .modal p {
+            color: #555;
+            line-height: 1.5;
+        }
+        .modal .btn-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+        .modal .btn-cerrar:hover {
+            color: #e91e63;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="test.html" class="volver-btn">Volver al Test</a>
+        <h1>Productos para Piel Seca</h1>
+        <p>¡Te ofrecemos una selección de productos diseñados para nutrir, hidratar y restaurar la barrera de tu piel!</p>
+    </div>
+
+    <div class="productos-grid">
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/0f/4f/98/0f4f9800e32ed78dde8f75e1881630f1.jpg" alt="Crema Hidratante con Ácido Hialurónico">
+            <div class="producto-info">
+                <h3>Crema Hidratante con Ácido Hialurónico</h3>
+                <p class="producto-precio">S/ 55.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Crema Hidratante', 'Esta crema ultra-hidratante repone la humedad de la piel seca, dejándola suave y flexible sin sensación grasa.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/b0/cc/59/b0cc5937e0edaccefaf66a6fccb482c0.jpg" alt="Sérum de Vitamina C">
+            <div class="producto-info">
+                <h3>Sérum de Vitamina C</h3>
+                <p class="producto-precio">S/ 65.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Sérum de Vitamina C', 'Este sérum ilumina y protege la piel del daño ambiental, mejorando su luminosidad y ayudando a reducir manchas.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://www.hogarysalud.com.pe/wp-content/uploads/2024/10/00214019.jpg" alt="Limpiador Facial Suave">
+            <div class="producto-info">
+                <h3>Limpiador Facial Suave</h3>
+                <p class="producto-precio">S/ 40.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Limpiador Facial Suave', 'Un limpiador sin sulfatos que remueve impurezas sin despojar a la piel de sus aceites naturales, ideal para pieles sensibles.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/736x/85/a7/27/85a7271f97e31169b78c6e7557fea573.jpg" alt="Mascarilla de Noche Reparadora">
+            <div class="producto-info">
+                <h3>Mascarilla de Noche Reparadora</h3>
+                <p class="producto-precio">S/ 70.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Mascarilla de Noche', 'Una mascarilla intensiva que trabaja mientras duermes para reparar y fortalecer la barrera cutánea. Despierta con una piel radiante.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/1f/d0/69/1fd069fb7229a1c3b5adf54971e76399.jpg" alt="Aceite Facial de Argán">
+            <div class="producto-info">
+                <h3>Aceite Facial de Argán</h3>
+                <p class="producto-precio">S/ 68.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Aceite Facial de Argán', 'Aceite ligero y nutritivo que hidrata profundamente y sella la humedad en la piel, ideal para usarlo en la noche.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://d1flfk77wl2xk4.cloudfront.net/Assets/cosrx-centella-water-alcohol-free-toner-150ml/16/821/XXL_p0056482116.jpg" alt="Tónico sin alcohol">
+            <div class="producto-info">
+                <h3>Tónico sin alcohol</h3>
+                <p class="producto-precio">S/ 45.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Tónico sin alcohol', 'Prepara tu piel para absorber mejor los siguientes productos sin causar irritación o sequedad. Enriquecido con extractos botánicos.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/1d/a3/2f/1da32f2b2456fbfc39d16d43a5477b7e.jpg" alt="Contorno de Ojos Nutritivo">
+            <div class="producto-info">
+                <h3>Contorno de Ojos Nutritivo</h3>
+                <p class="producto-precio">S/ 50.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Contorno de Ojos Nutritivo', 'Fórmula rica en emolientes que hidrata y suaviza la delicada piel del contorno de ojos, reduciendo la apariencia de líneas finas.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://www.farmaciachamberi.com/3307-home_default/avene-solar-cara-mineral-spf-50-40-ml.jpg" alt="Protector Solar Mineral">
+            <div class="producto-info">
+                <h3>Protector Solar Mineral SPF 50</h3>
+                <p class="producto-precio">S/ 60.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Protector Solar Mineral', 'Protector solar con filtros minerales que no obstruyen los poros y son gentiles con la piel seca, evitando el efecto de sequedad.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/8a/c5/7b/8ac57b632cc25f3b345cae4ce90d04b3.jpg" alt="Exfoliante Facial Enzimático">
+            <div class="producto-info">
+                <h3>Exfoliante Facial Enzimático</h3>
+                <p class="producto-precio">S/ 52.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Exfoliante Enzimático', 'Exfoliación suave que remueve células muertas sin irritar la piel, a base de enzimas de frutas. Deja la piel lisa y lista para hidratar.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/9e/39/b3/9e39b3d0a97dd4899ae978cb68c55164.jpg" alt="Ampolla de Ceramidas">
+            <div class="producto-info">
+                <h3>Ampolla de Ceramidas</h3>
+                <p class="producto-precio">S/ 75.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Ampolla de Ceramidas', 'Tratamiento concentrado para fortalecer la barrera de la piel, rellenando las grietas y evitando la pérdida de humedad.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/08/5b/ff/085bffd55b7d739732186bcda9ad79f4.jpg" alt="Bálsamo Limpiador">
+            <div class="producto-info">
+                <h3>Bálsamo Limpiador</h3>
+                <p class="producto-precio">S/ 49.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Bálsamo Limpiador', 'Una opción suave y nutritiva para la doble limpieza. Se derrite en un aceite al contacto con la piel, eliminando maquillaje y protector solar sin dejarla seca.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/09/50/60/09506016cd5d420ed9c40efdb068a27b.jpg" alt="Mascarilla de Hidrogel">
+            <div class="producto-info">
+                <h3>Mascarilla de Hidrogel</h3>
+                <p class="producto-precio">S/ 35.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Mascarilla de Hidrogel', 'Una mascarilla que se adhiere perfectamente al rostro, infundiendo ingredientes hidratantes como el colágeno y el ácido hialurónico.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/736x/f5/aa/b5/f5aab5ddb50f505d842b27f591fbf267.jpg" alt="Crema de día con SPF">
+            <div class="producto-info">
+                <h3>Crema de Día con SPF 30</h3>
+                <p class="producto-precio">S/ 58.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Crema de Día con SPF', 'Una crema ligera que ofrece hidratación diaria y protección solar, ideal para una rutina rápida por la mañana.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/736x/c2/ff/1f/c2ff1f841f25114f0b603406412c1f7d.jpg" alt="Sérum de Escualeno">
+            <div class="producto-info">
+                <h3>Sérum de Escualeno</h3>
+                <p class="producto-precio">S/ 62.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Sérum de Escualeno', 'Aceite vegetal que imita los lípidos naturales de la piel, proporcionando una hidratación intensa y duradera sin sensación grasosa.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/8f/3a/02/8f3a02412af95b92530bcbf3af0a8586.jpg" alt="Bruma Facial">
+            <div class="producto-info">
+                <h3>Bruma Facial</h3>
+                <p class="producto-precio">S/ 38.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Bruma Facial', 'Una bruma refrescante que puedes usar en cualquier momento del día para revitalizar tu piel y darle un extra de hidratación.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/b8/c7/d2/b8c7d2352fe0aa8932db7dfd5a3ae81f.jpg" alt="Stick Limpiador">
+            <div class="producto-info">
+                <h3>Stick Limpiador de Miel</h3>
+                <p class="producto-precio">S/ 50.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Stick Limpiador', 'Limpiador sólido en formato de stick, perfecto para viajes. Contiene miel y ingredientes humectantes que limpian sin resecar.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-comprar" class="overlay">
+        <div class="modal">
+            <button class="btn-cerrar" onclick="cerrarModal('modal-comprar')">&times;</button>
+            <h2>¡Contáctanos por WhatsApp!</h2>
+            <p>Para realizar tu pedido, haz clic en el botón de abajo y envíanos un mensaje con el producto que deseas adquirir.</p>
+            <a href="https://wa.me/51934501329" class="btn btn-comprar" target="_blank">
+                <img src="imgpagina2/wasp.jpg" alt="WhatsApp" style="width:20px; vertical-align:middle; margin-right:5px;">
+                Enviar WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <div id="modal-info" class="overlay">
+        <div class="modal">
+            <button class="btn-cerrar" onclick="cerrarModal('modal-info')">&times;</button>
+            <h2 id="modal-info-titulo"></h2>
+            <p id="modal-info-texto"></p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarModalComprar() {
+            document.getElementById('modal-comprar').style.display = 'flex';
+        }
+
+        function mostrarModalInfo(titulo, texto) {
+            document.getElementById('modal-info-titulo').textContent = titulo;
+            document.getElementById('modal-info-texto').textContent = texto;
+            document.getElementById('modal-info').style.display = 'flex';
+        }
+
+        function cerrarModal(idModal) {
+            document.getElementById(idModal).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

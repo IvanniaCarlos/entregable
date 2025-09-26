@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos para Piel Mixta - Belleza Facial</title>
+    <link rel="icon" href="https://img.freepik.com/vector-gratis/tecnica-masaje-facial-dibujada-mano_23-2148867246.jpg?w=360">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fce4ec;
+            background-image: linear-gradient(to bottom, #fff0f5, #fce4ec);
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #e91e63;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+        .volver-btn {
+            background-color: #f48fb1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .volver-btn:hover {
+            background-color: #e91e63;
+        }
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .producto-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .producto-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .producto-info {
+            padding: 20px;
+        }
+        .producto-info h3 {
+            color: #e91e63;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        .producto-precio {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .botones-producto {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-comprar {
+            background-color: #f48fb1;
+            color: white;
+        }
+        .btn-comprar:hover {
+            background-color: #e91e63;
+        }
+        .btn-info {
+            background-color: #ccc;
+            color: #555;
+        }
+        .btn-info:hover {
+            background-color: #999;
+            color: white;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal h2 {
+            color: #e91e63;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        .modal p {
+            color: #555;
+            line-height: 1.5;
+        }
+        .modal .btn-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+        .modal .btn-cerrar:hover {
+            color: #e91e63;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="test.html" class="volver-btn">Volver al Test</a>
+        <h1>Productos para Piel Mixta</h1>
+        <p>¡Te ofrecemos una selección de productos que equilibran tu piel, hidratando las zonas secas y controlando el brillo en la zona T!</p>
+    </div>
+
+    <div class="productos-grid">
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Sérum Equilibrante con Niacinamida.jpg" alt="Sérum Equilibrante con Niacinamida">
+            <div class="producto-info">
+                <h3>Sérum Equilibrante con Niacinamida</h3>
+                <p class="producto-precio">S/ 60.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Sérum Equilibrante', 'Este sérum ligero ayuda a equilibrar la producción de sebo en la zona T mientras hidrata el resto del rostro, dejando un acabado mate y fresco.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Gel Limpiador Suave.jpg" alt="Gel Limpiador Suave">
+            <div class="producto-info">
+                <h3>Gel Limpiador Suave</h3>
+                <p class="producto-precio">S/ 45.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Gel Limpiador Suave', 'Un limpiador en gel que remueve el exceso de grasa sin irritar las zonas secas. Deja la piel limpia y fresca.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Hidratante Ligero sin Aceite.jpg" alt="Hidratante Ligero sin Aceite">
+            <div class="producto-info">
+                <h3>Hidratante Ligero sin Aceite</h3>
+                <p class="producto-precio">S/ 55.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Hidratante Ligero', 'Una crema hidratante en gel que se absorbe rápidamente, proporcionando humedad sin dejar brillo en la zona T.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Tónico Minimizador de Poros.jpg" alt="Tónico Minimizador de Poros">
+            <div class="producto-info">
+                <h3>Tónico Minimizador de Poros</h3>
+                <p class="producto-precio">S/ 50.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Tónico Minimizador de Poros', 'Tónico con hamamelis y extractos botánicos que ayuda a refinar los poros en la zona T, mientras calma el resto del rostro.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Exfoliante Químico Suave.jpg" alt="Exfoliante Químico Suave">
+            <div class="producto-info">
+                <h3>Exfoliante Químico Suave</h3>
+                <p class="producto-precio">S/ 65.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Exfoliante Químico', 'Formulado con AHA y BHA para exfoliar suavemente, desobstruir poros y mejorar la textura sin irritar la piel.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Mascarilla de Arcilla Purificante.jpg" alt="Mascarilla de Arcilla Purificante">
+            <div class="producto-info">
+                <h3>Mascarilla de Arcilla Purificante</h3>
+                <p class="producto-precio">S/ 58.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Mascarilla de Arcilla', 'Mascarilla ideal para aplicar en la zona T. Absorbe el exceso de grasa y purifica, mientras las zonas secas se mantienen hidratadas.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Parches Hidrogel para Ojos.jpg" alt="Parches Hidrogel para Ojos">
+            <div class="producto-info">
+                <h3>Parches Hidrogel para Ojos</h3>
+                <p class="producto-precio">S/ 38.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Parches para Ojos', 'Parches refrescantes que hidratan y reducen la hinchazón en el área de los ojos, ideal para las zonas más secas.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Protector Solar SPF 50 en Gel.jpg" alt="Protector Solar SPF 50 en Gel">
+            <div class="producto-info">
+                <h3>Protector Solar  en Gel</h3>
+                <p class="producto-precio">S/ 62.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Protector Solar en Gel', 'Protección solar ligera y de rápida absorción que no deja rastro graso, ideal para pieles mixtas.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Sérum Hidratante Ligero.jpg" alt="Sérum Hidratante Ligero">
+            <div class="producto-info">
+                <h3>Sérum Hidratante Ligero</h3>
+                <p class="producto-precio">S/ 55.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Sérum Hidratante Ligero', 'Fórmula a base de agua que hidrata profundamente las zonas secas sin añadir peso en la zona T.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Bálsamo Limpiador de Aceite.jpg" alt="Bálsamo Limpiador de Aceite">
+            <div class="producto-info">
+                <h3>Bálsamo Limpiador de Aceite</h3>
+                <p class="producto-precio">S/ 48.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Bálsamo Limpiador', 'Ideal para la doble limpieza, este bálsamo disuelve maquillaje y protector solar sin dejar sensación de tirantez.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Contorno de Ojos Iluminador.jpg" alt="Contorno de Ojos Iluminador">
+            <div class="producto-info">
+                <h3>Contorno de Ojos Iluminador</h3>
+                <p class="producto-precio">S/ 52.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Contorno de Ojos', 'Con cafeína y vitamina C, ayuda a reducir la apariencia de ojeras y a hidratar la zona sin ser grasoso.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Spray Facial Matificante.jpg" alt="Spray Facial Matificante">
+            <div class="producto-info">
+                <h3>Spray Facial Matificante</h3>
+                <p class="producto-precio">S/ 35.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Spray Matificante', 'Un spray refrescante para usar durante el día que ayuda a controlar el brillo en la zona T sin resecar el resto del rostro.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Gel Exfoliante de BHA.jpg" alt="Gel Exfoliante de BHA">
+            <div class="producto-info">
+                <h3>Gel Exfoliante de BHA</h3>
+                <p class="producto-precio">S/ 60.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Gel Exfoliante de BHA', 'Exfolia los poros desde el interior para prevenir puntos negros y brotes en la zona T.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Sérum con Ácido Hialurónico.jpg" alt="Sérum con Ácido Hialurónico">
+            <div class="producto-info">
+                <h3>Sérum con Ácido Hialurónico</h3>
+                <p class="producto-precio">S/ 58.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Sérum con Ácido Hialurónico', 'Hidratación profunda para las zonas secas, sin ser comedogénico, lo que lo hace seguro para la zona T.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Mascarilla Hidratante.jpg" alt="Mascarilla Hidratante">
+            <div class="producto-info">
+                <h3>Mascarilla Hidratante</h3>
+                <p class="producto-precio">S/ 42.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Mascarilla Hidratante', 'Mascarilla de uso semanal que calma y aporta hidratación a las zonas secas y deshidratadas.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="productopielmixta/Crema de Noche Equilibrante.jpg" alt="Crema de Noche Equilibrante">
+            <div class="producto-info">
+                <h3>Crema de Noche Equilibrante</h3>
+                <p class="producto-precio">S/ 65.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Crema de Noche Equilibrante', 'Nutre y repara la piel durante la noche, sin sobrecargarla. Ayuda a restaurar el equilibrio de la piel mixta.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-comprar" class="overlay">
+        <div class="modal">
+            <button class="btn-cerrar" onclick="cerrarModal('modal-comprar')">&times;</button>
+            <h2>¡Contáctanos por WhatsApp!</h2>
+            <p>Para realizar tu pedido, haz clic en el botón de abajo y envíanos un mensaje con el producto que deseas adquirir.</p>
+            <a href="https://wa.me/51934501329" class="btn btn-comprar" target="_blank">
+                <img src="imgpagina2/wasp.jpg" alt="WhatsApp" style="width:20px; vertical-align:middle; margin-right:5px;">
+                Enviar WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <div id="modal-info" class="overlay">
+        <div class="modal">
+            <button class="btn-cerrar" onclick="cerrarModal('modal-info')">&times;</button>
+            <h2 id="modal-info-titulo"></h2>
+            <p id="modal-info-texto"></p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarModalComprar() {
+            document.getElementById('modal-comprar').style.display = 'flex';
+        }
+
+        function mostrarModalInfo(titulo, texto) {
+            document.getElementById('modal-info-titulo').textContent = titulo;
+            document.getElementById('modal-info-texto').textContent = texto;
+            document.getElementById('modal-info').style.display = 'flex';
+        }
+
+        function cerrarModal(idModal) {
+            document.getElementById(idModal).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

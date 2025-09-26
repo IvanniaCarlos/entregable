@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos para Piel Grasa - Belleza Facial</title>
+    <link rel="icon" href="https://img.freepik.com/vector-gratis/tecnica-masaje-facial-dibujada-mano_23-2148867246.jpg?w=360">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fce4ec;
+            background-image: linear-gradient(to bottom, #fff0f5, #fce4ec);
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #e91e63;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+        .volver-btn {
+            background-color: #f48fb1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .volver-btn:hover {
+            background-color: #e91e63;
+        }
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .producto-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .producto-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .producto-info {
+            padding: 20px;
+        }
+        .producto-info h3 {
+            color: #e91e63;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        .producto-precio {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .botones-producto {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-comprar {
+            background-color: #f48fb1;
+            color: white;
+        }
+        .btn-comprar:hover {
+            background-color: #e91e63;
+        }
+        .btn-info {
+            background-color: #ccc;
+            color: #555;
+        }
+        .btn-info:hover {
+            background-color: #999;
+            color: white;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal h2 {
+            color: #e91e63;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        .modal p {
+            color: #555;
+            line-height: 1.5;
+        }
+        .modal .btn-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+        .modal .btn-cerrar:hover {
+            color: #e91e63;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="test.html" class="volver-btn">Volver al Test</a>
+        <h1>Productos para Piel Grasa</h1>
+        <p>¡Te ofrecemos una selección de productos diseñados para controlar el brillo, minimizar los poros y mantener tu piel equilibrada!</p>
+    </div>
+
+    <div class="productos-grid">
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/9d/da/d9/9ddad9ee7564aa114299b230921ca090.jpg" alt="Limpiador de Carbón Activado">
+            <div class="producto-info">
+                <h3>Limpiador de Carbón Activado</h3>
+                <p class="producto-precio">S/ 48.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Limpiador de Carbón', 'Este limpiador purificante con carbón activado limpia profundamente los poros, eliminando el exceso de grasa y las impurezas.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/f8/fa/34/f8fa34aa0780f1adb25bd64709d31845.jpg" alt="Tónico Control de Brillo">
+            <div class="producto-info">
+                <h3>Tónico Control de Brillo</h3>
+                <p class="producto-precio">S/ 45.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Tónico Control de Brillo', 'Tónico astringente que reduce el tamaño de los poros y controla la producción de sebo, dejando un acabado mate y fresco.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/736x/64/ec/3b/64ec3b54d56b7acf4d57edbba71a8e3a.jpg" alt="Gel Hidratante sin Aceite">
+            <div class="producto-info">
+                <h3>Gel Hidratante sin Aceite</h3>
+                <p class="producto-precio">S/ 55.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Gel Hidratante', 'Hidratante ligero a base de agua que proporciona humedad sin sensación grasosa ni brillo. Ideal para el uso diario.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/c3/d5/bc/c3d5bc2a57ba71461af082ea56eb31c5.jpg" alt="Sérum con Ácido Salicílico">
+            <div class="producto-info">
+                <h3>Sérum con Ácido Salicílico</h3>
+                <p class="producto-precio">S/ 60.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Sérum con Ácido Salicílico', 'Este sérum penetra en los poros para disolver la grasa y las impurezas, ayudando a prevenir y tratar los brotes.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/db/99/8e/db998e94a37cf5e9d045c0ce18a069c7.jpg" alt="Mascarilla de Arcilla Verde">
+            <div class="producto-info">
+                <h3>Mascarilla de Arcilla Verde</h3>
+                <p class="producto-precio">S/ 52.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Mascarilla de Arcilla', 'Mascarilla de limpieza profunda que absorbe el exceso de sebo, purifica los poros y deja la piel con una sensación mate.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/0b/13/4f/0b134f419998ceadf315181f62e5d384.jpg" alt="Protector Solar SPF 50 Mineral">
+            <div class="producto-info">
+                <h3>Protector Solar en Gel SPF 50</h3>
+                <p class="producto-precio">S/ 68.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Protector Solar en Gel', 'Fórmula de rápida absorción que no deja rastro graso. Protege la piel del sol sin causar brillo ni obstruir los poros.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/736x/a6/62/d1/a662d14f551640bc863ec9658b6980e1.jpg" alt="Parches para Granos">
+            <div class="producto-info">
+                <h3>Parches para Granos</h3>
+                <p class="producto-precio">S/ 30.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Parches para Granos', 'Parches de hidrocoloide que extraen las impurezas de los granos durante la noche, reduciendo su tamaño y enrojecimiento.')">Más Info</p>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/ac/84/e0/ac84e0b31565b3b398e7f201f9bb57d1.jpg" alt="Bálsamo Limpiador de Aceite Ligero">
+            <div class="producto-info">
+                <h3>Bálsamo Limpiador de Aceite Ligero</h3>
+                <p class="producto-precio">S/ 49.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Bálsamo Limpiador', 'Ideal para la doble limpieza. Disuelve el maquillaje y el exceso de sebo sin dejar residuos oleosos.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/5e/34/5c/5e345c6e2fcfca3c2db7e100c0876eb0.jpg" alt="Exfoliante Facial con Jojoba">
+            <div class="producto-info">
+                <h3>Exfoliante Facial con Jojoba</h3>
+                <p class="producto-precio">S/ 48.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Exfoliante con Jojoba', 'Exfoliante suave con microesferas de jojoba que limpian profundamente los poros sin ser abrasivas para la piel.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/f9/d0/ef/f9d0efe0edaafd42b11d4ddc8aae68af.jpg" alt="Sérum de Zinc y Niacinamida">
+            <div class="producto-info">
+                <h3>Sérum de Zinc y Niacinamida</h3>
+                <p class="producto-precio">S/ 62.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Sérum de Zinc y Niacinamida', 'Fórmula potente que reduce el tamaño de los poros, minimiza las imperfecciones y regula la producción de sebo.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/736x/10/0a/31/100a312a50b0fdd0cee9cbd4d9bf1810.jpg" alt="Mascarilla de Burbujas Purificadora">
+            <div class="producto-info">
+                <h3>Mascarilla de Burbujas Purificadora</h3>
+                <p class="producto-precio">S/ 30.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Mascarilla de Burbujas', 'Mascarilla de oxígeno que limpia profundamente los poros con microburbujas, eliminando las impurezas de manera divertida y eficaz.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/e3/8a/85/e38a85f99753fd7bc8de84000a102062.jpg" alt="Crema de Noche Matificante">
+            <div class="producto-info">
+                <h3>Crema de Noche Matificante</h3>
+                <p class="producto-precio">S/ 65.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Crema de Noche Matificante', 'Hidrata la piel durante la noche y ayuda a controlar el brillo para que despiertes con un rostro fresco y sin exceso de grasa.')">Más Info</p>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/ee/48/27/ee4827269102ba65f954f60d04de56cf.jpg" alt="Tónico de Té Verde">
+            <div class="producto-info">
+                <h3>Tónico de Té Verde</h3>
+                <p class="producto-precio">S/ 40.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Tónico de Té Verde', 'Con antioxidantes, este tónico ayuda a calmar y equilibrar la piel grasa, reduciendo el enrojecimiento y el brillo.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/cae/cae72665/l/10.jpg" alt="Sérum Exfoliante de BHA">
+            <div class="producto-info">
+                <h3>Sérum Exfoliante de BHA</h3>
+                <p class="producto-precio">S/ 58.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Sérum Exfoliante de BHA', 'Una fórmula líquida que exfolia suavemente las células muertas y limpia los poros, dejando la piel más clara.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/1200x/dd/e8/53/dde85305e8f42ae8ee5133f6485e8516.jpg" alt="Jabón Facial de Azufre">
+            <div class="producto-info">
+                <h3>Jabón Facial de Azufre</h3>
+                <p class="producto-precio">S/ 35.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Jabón de Azufre', 'Limpiador en barra que ayuda a combatir el acné y a controlar la producción de grasa, dejando la piel profundamente limpia.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <img class="producto-img" src="https://i.pinimg.com/736x/2a/0b/fe/2a0bfe11ec55fcdc52c3028bcd7bd30f.jpg" alt="Ampolla de Vitamina B5">
+            <div class="producto-info">
+                <h3>Ampolla de Vitamina B5</h3>
+                <p class="producto-precio">S/ 50.00</p>
+                <div class="botones-producto">
+                    <button class="btn btn-comprar" onclick="mostrarModalComprar()">Comprar</button>
+                    <button class="btn btn-info" onclick="mostrarModalInfo('Ampolla de Vitamina B5', 'Fórmula ligera que hidrata sin obstruir los poros, ideal para pieles grasas que necesitan un boost de hidratación.')">Más Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-comprar" class="overlay">
+        <div class="modal">
+            <button class="btn-cerrar" onclick="cerrarModal('modal-comprar')">&times;</button>
+            <h2>¡Contáctanos por WhatsApp!</h2>
+            <p>Para realizar tu pedido, haz clic en el botón de abajo y envíanos un mensaje con el producto que deseas adquirir.</p>
+            <a href="https://wa.me/51934501329" class="btn btn-comprar" target="_blank">
+                <img src="imgpagina2/wasp.jpg" alt="WhatsApp" style="width:20px; vertical-align:middle; margin-right:5px;">
+                Enviar WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <div id="modal-info" class="overlay">
+        <div class="modal">
+            <button class="btn-cerrar" onclick="cerrarModal('modal-info')">&times;</button>
+            <h2 id="modal-info-titulo"></h2>
+            <p id="modal-info-texto"></p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarModalComprar() {
+            document.getElementById('modal-comprar').style.display = 'flex';
+        }
+
+        function mostrarModalInfo(titulo, texto) {
+            document.getElementById('modal-info-titulo').textContent = titulo;
+            document.getElementById('modal-info-texto').textContent = texto;
+            document.getElementById('modal-info').style.display = 'flex';
+        }
+
+        function cerrarModal(idModal) {
+            document.getElementById(idModal).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

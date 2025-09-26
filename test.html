@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubre tu Rutina Ideal</title>
+    <link rel="icon" href="https://img.freepik.com/vector-gratis/tecnica-masaje-facial-dibujada-mano_23-2148867246.jpg?w=360">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fce4ec;
+            background-image: linear-gradient(to bottom, #fff0f5, #fce4ec);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px; 
+            text-align: center;
+            max-width: 650px; 
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        h1 {
+            color: #e91e63;
+            margin-bottom: 8px; 
+            font-size: 2.5rem; 
+        }
+        .subtitulo {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1.1rem; 
+        }
+        .pregunta-container {
+            display: none;
+        }
+        .pregunta-container.active {
+            display: block;
+        }
+        .pregunta {
+            font-size: 1.4rem; 
+            color: #555;
+            margin-bottom: 30px; 
+            font-weight: 500;
+        }
+        .opciones-contenedor {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .opcion, .btn-opcion-directa {
+            background-color: #fce4ec;
+            border: 2px solid #f48fb1;
+            border-radius: 15px;
+            padding: 20px; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            color: #e91e63;
+            text-decoration: none;
+            display: block;
+            font-size: 1.1rem; 
+        }
+        .opcion:hover, .btn-opcion-directa:hover {
+            background-color: #f8bbd0;
+            transform: translateY(-3px);
+        }
+        .opcion.seleccionado {
+            background-color: #e91e63;
+            color: white;
+            border-color: #e91e63;
+        }
+        .btn-navegacion {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px 30px; 
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px; 
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .btn-navegacion:hover {
+            background-color: #d81b60;
+            transform: scale(1.05);
+        }
+        
+        #pantalla-final {
+            text-align: center;
+            padding-top: 20px;
+        }
+        #pantalla-final .btn-resultado {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            text-decoration: none;
+            display: inline-block; 
+        }
+        #pantalla-final .btn-resultado:hover {
+            background-color: #d81b60;
+            transform: scale(1.05);
+        }
+        .mensaje-agradecimiento {
+            font-size: 1.1rem; 
+            color: #555;
+            margin-bottom: 25px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Descubre tu Rutina Ideal</h1>
+        <p class="subtitulo">Encuentra los productos perfectos para tu piel</p>
+        
+        <div id="pregunta-inicial" class="pregunta-container active">
+            <p class="pregunta">¿Ya sabes qué tipo de piel tienes?</p>
+            <div class="opciones-contenedor">
+                <button class="opcion" onclick="mostrarTest()">No, no lo sé. Ayúdame a descubrirlo.</button>
+                <button class="opcion" onclick="mostrarOpcionesDirectas()">Sí, ya lo sé.</button>
+            </div>
+        </div>
+
+        <div id="opciones-directas" class="pregunta-container">
+            <p class="pregunta">¡Perfecto! Elige tu tipo de piel para ver los productos:</p>
+            <div class="opciones-contenedor">
+                <a href="pielseca.html" class="btn-opcion-directa">Piel Seca</a>
+                <a href="pielmixta.html" class="btn-opcion-directa">Piel Mixta</a>
+                <a href="pielgrasa.html" class="btn-opcion-directa">Piel Grasa</a>
+            </div>
+        </div>
+
+        <div id="cuestionario-completo" class="pregunta-container">
+            <div id="pregunta1" class="pregunta-container">
+                <p class="pregunta">¿Cómo se siente tu piel después de lavarla?</p>
+                <div class="opciones-contenedor">
+                    <button class="opcion" data-score="seca">Tirante y seca</button>
+                    <button class="opcion" data-score="mixta">Grasa en la zona T, normal en las mejillas</button>
+                    <button class="opcion" data-score="grasa">Grasa y brillante</button>
+                </div>
+            </div>
+            
+            <div id="pregunta2" class="pregunta-container">
+                <p class="pregunta">¿Con qué frecuencia notas brotes de acné o espinillas?</p>
+                <div class="opciones-contenedor">
+                    <button class="opcion" data-score="seca">Rara vez o nunca</button>
+                    <button class="opcion" data-score="mixta">A veces, especialmente en la zona T</button>
+                    <button class="opcion" data-score="grasa">Con frecuencia</button>
+                </div>
+            </div>
+
+            <div id="pregunta3" class="pregunta-container">
+                <p class="pregunta">¿Cómo se ven tus poros?</p>
+                <div class="opciones-contenedor">
+                    <button class="opcion" data-score="seca">Casi invisibles</button>
+                    <button class="opcion" data-score="mixta">Visibles en la nariz y frente</button>
+                    <button class="opcion" data-score="grasa">Grandes y muy visibles</button>
+                </div>
+            </div>
+            
+            <button class="btn-navegacion" id="boton-siguiente" onclick="siguientePregunta()">Siguiente</button>
+        </div>
+
+        <div id="pantalla-final" class="pregunta-container">
+            <p class="mensaje-agradecimiento">¡Muchas gracias por responder honestamente!</p>
+            <p class="pregunta">Haz clic para ver tu rutina ideal.</p>
+            <a href="#" class="btn-resultado" onclick="irAResultado()">Ver mi resultado</a>
+        </div>
+    </div>
+
+    <script>
+        const preguntasTest = document.querySelectorAll('#cuestionario-completo .pregunta-container');
+        const botonNavegacion = document.getElementById('boton-siguiente');
+        const pantallaFinal = document.getElementById('pantalla-final');
+        let paso = 0;
+        const puntaje = { seca: 0, mixta: 0, grasa: 0 };
+        const totalPreguntas = preguntasTest.length;
+
+        function mostrarTest() {
+            document.getElementById('pregunta-inicial').classList.remove('active');
+            document.getElementById('cuestionario-completo').classList.add('active');
+            preguntasTest[paso].classList.add('active');
+            actualizarBoton();
+        }
+
+        function mostrarOpcionesDirectas() {
+            document.getElementById('pregunta-inicial').classList.remove('active');
+            document.getElementById('opciones-directas').classList.add('active');
+        }
+
+        preguntasTest.forEach(pregunta => {
+            const opciones = pregunta.querySelectorAll('.opcion');
+            opciones.forEach(opcion => {
+                opcion.addEventListener('click', () => {
+                    opciones.forEach(o => o.classList.remove('seleccionado'));
+                    opcion.classList.add('seleccionado');
+                });
+            });
+        });
+
+        function siguientePregunta() {
+            const preguntaActual = preguntasTest[paso];
+            const opcionSeleccionada = preguntaActual.querySelector('.opcion.seleccionado');
+
+            if (!opcionSeleccionada) {
+                alert('Por favor, selecciona una opción para continuar.');
+                return;
+            }
+
+            const score = opcionSeleccionada.getAttribute('data-score');
+            puntaje[score]++;
+            
+            preguntaActual.classList.remove('active');
+            paso++;
+
+            if (paso < totalPreguntas) {
+                preguntasTest[paso].classList.add('active');
+                actualizarBoton();
+            } else {
+                botonNavegacion.style.display = 'none';
+                document.getElementById('cuestionario-completo').style.display = 'none';
+                pantallaFinal.classList.add('active');
+                determinarTipoDePiel();
+            }
+        }
+
+        function actualizarBoton() {
+            if (paso === totalPreguntas - 1) {
+                botonNavegacion.textContent = 'Ver mi resultado';
+            } else {
+                botonNavegacion.textContent = 'Siguiente';
+            }
+        }
+
+        function determinarTipoDePiel() {
+            let tipoFinal = 'seca';
+            let maxScore = puntaje.seca;
+
+            if (puntaje.mixta > maxScore) {
+                maxScore = puntaje.mixta;
+                tipoFinal = 'mixta';
+            }
+            if (puntaje.grasa > maxScore) {
+                maxScore = puntaje.grasa;
+                tipoFinal = 'grasa';
+            }
+            
+            localStorage.setItem('tipoPiel', tipoFinal);
+        }
+
+        function irAResultado() {
+            window.location.href = 'resultado.html';
+        }
+    </script>
+</body>
+</html>
