@@ -25,7 +25,7 @@ const submitBtn = document.getElementById('submit-btn');
 const errorMessage = document.getElementById('error-message');
 const toggleLink = document.getElementById('toggle-link');
 
-let isLogin = false; 
+let isLogin = false;
 
 function setFormMode(mode) {
     if (mode === 'login') {
@@ -78,7 +78,7 @@ authForm.addEventListener('submit', async (e) => {
             } catch (firestoreError) {
                 console.error('Advertencia: No se pudo guardar el perfil del usuario en Firestore.', firestoreError);
             }
-            
+
             window.location.href = 'sobrenosotros.html';
         }
     } catch (error) {

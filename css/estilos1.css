@@ -2,7 +2,7 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #e8a2be, #c77a94, #c77a94);
+    background: linear-gradient(to right, #f8cce6, #f39ec1, #e68cb5);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -23,6 +23,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     position: relative;
+    border: 1px solid #f2d4e7;
 }
 
 .left-section {
@@ -32,6 +33,7 @@ body {
     justify-content: center;
     padding: 20px;
     position: relative;
+    background-color: #ffffff;
 }
 
 .carousel {
@@ -62,7 +64,7 @@ body {
 }
 
 .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     padding: 10px;
     color: #fff;
@@ -75,7 +77,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    background-color: #fff;
+    background: linear-gradient(to bottom, #ffffff, #fff0f5);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 1;
@@ -98,12 +100,12 @@ body {
 .auth-form-container h2 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #d63384;
+    color: #d81b60;
     margin-bottom: 0.5rem;
 }
 
 .auth-form-container p {
-    color: #666;
+    color: #757575;
     margin-bottom: 2rem;
 }
 
@@ -115,30 +117,31 @@ form {
 
 input {
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #f9f9f9;
+    background-color: #fafafa;
 }
 
 button[type="submit"] {
     padding: 1rem;
-    background-color: #d63384;
+    background-color: #f06292;
     color: #fff;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button[type="submit"]:hover {
-    background-color: #b82c71;
+    background-color: #ec407a;
+    transform: translateY(-2px);
 }
 
 .error-message {
-    color: #e74c3c;
+    color: #ef5350;
     margin-top: 1rem;
     font-weight: bold;
 }
@@ -148,51 +151,26 @@ button[type="submit"]:hover {
 }
 
 .toggle-link a {
-    color: #d63384;
+    color: #f06292;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .toggle-link a:hover {
     text-decoration: underline;
+    color: #d81b60;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    position: relative;
-    max-width: 400px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.modal-close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.modal-close-btn:hover {
-    color: #d63384;
+.user-id-display {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fcf4f8;
+    border: 1px dashed #f06292;
+    border-radius: 8px;
+    font-family: monospace;
+    color: #d81b60;
+    word-wrap: break-word;
 }
 
 @media (max-width: 767px) {
@@ -202,7 +180,8 @@ button[type="submit"]:hover {
         height: auto;
         border-radius: 0;
         box-shadow: none;
-        padding-top: 0; 
+        padding-top: 0;
+        border: none;
     }
 
     .left-section,
@@ -216,6 +195,7 @@ button[type="submit"]:hover {
 
     .right-section {
         padding: 1rem;
+        background: #fff;
     }
 
     .auth-form-container {
